@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: anotherbrick-deployment
+  labels:
+    app: anotherbrick
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: anotherbrick
+  template:
+    metadata:
+      labels:
+        app: anotherbrick
+    spec:
+      containers:
+      - name: anotherbrick
+        image: anotherbrick:1.0
+        ports:
+        - containerPort: 80
